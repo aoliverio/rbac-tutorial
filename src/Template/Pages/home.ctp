@@ -6,6 +6,7 @@
         <li><a href="<?= $this->Url->build('/permissions') ?>"><?= __('Permissions') ?></a></li>
         <li><a href="<?= $this->Url->build('/objects') ?>"><?= __('Objectes') ?></a></li>
         <li><a href="<?= $this->Url->build('/operations') ?>"><?= __('Operations') ?></a></li>
+        <li><a href="<?= $this->Url->build('/sessions') ?>"><?= __('Sessions') ?></a></li>        
     </ul>
     <h4>Audit</h4>
     <ul>

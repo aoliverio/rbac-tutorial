@@ -77,3 +77,20 @@ CREATE TABLE logon_errors (
     password varchar(255) DEFAULT NULL,
     created timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sessions (
+    id int(11) AUTO_INCREMENT PRIMARY KEY,
+    user_id int(11) NOT NULL,
+    name varchar(255) DEFAULT NULL,
+    created timestamp NULL DEFAULT NULL,
+    modified datetime DEFAULT NULL,
+    FOREIGN KEY user_key(user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sessions_roles (
+    session_id int(11) NOT NULL,
+    role_id int(11) NOT NULL,
+    PRIMARY KEY (session_id, role_id),
+    FOREIGN KEY session_key(session_id) REFERENCES sessions(id),
+    FOREIGN KEY role_key(role_id) REFERENCES roles(id)
+);
