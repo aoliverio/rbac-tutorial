@@ -17,6 +17,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 
 /**
@@ -48,6 +49,7 @@ class AppController extends Controller {
          * 
          */
         $this->loadComponent('Auth', [
+            'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -83,7 +85,17 @@ class AppController extends Controller {
      * @return boolean
      */
     public function isAuthorized($user) {
+
+        /**
+         * 
+         */
+        $user_id = $user['id'];
         return true;
+
+        /**
+         * Deny all
+         */
+        return false;
     }
 
     /**
