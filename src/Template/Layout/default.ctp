@@ -41,7 +41,7 @@ $cakeDescription = 'RBAC';
             </ul>
             <section class="top-bar-section">
                 <ul class="right">
-                    <li><a target="_blank" href="<?= $this->Url->build('/users/logout') ?>">Logout</a></li>
+                    <li><a href="<?= $this->Url->build('/users/logout') ?>">Logout</a></li>
                 </ul>
             </section>
         </nav>
