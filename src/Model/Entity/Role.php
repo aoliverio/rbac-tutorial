@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $description
  * @property int $lft
  * @property int $rgt
+ * @property \App\Model\Entity\UserRole[] $user_role
  * @property \App\Model\Entity\User[] $users
  */
 class Role extends Entity

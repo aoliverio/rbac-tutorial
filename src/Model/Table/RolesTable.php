@@ -10,7 +10,8 @@ use Cake\Validation\Validator;
 /**
  * Roles Model
  *
- * @property \Cake\ORM\Association\HasMany $UserRole
+ * @property \Cake\ORM\Association\BelongsToMany $Permissions
+ * @property \Cake\ORM\Association\BelongsToMany $Sessions
  * @property \Cake\ORM\Association\BelongsToMany $Users
  */
 class RolesTable extends Table
@@ -30,8 +31,15 @@ class RolesTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->hasMany('UserRole', [
-            'foreignKey' => 'role_id'
+        $this->belongsToMany('Permissions', [
+            'foreignKey' => 'role_id',
+            'targetForeignKey' => 'permission_id',
+            'joinTable' => 'roles_permissions'
+        ]);
+        $this->belongsToMany('Sessions', [
+            'foreignKey' => 'role_id',
+            'targetForeignKey' => 'session_id',
+            'joinTable' => 'sessions_roles'
         ]);
         $this->belongsToMany('Users', [
             'foreignKey' => 'role_id',
